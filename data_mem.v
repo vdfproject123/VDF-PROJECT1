@@ -1,5 +1,5 @@
 module data_memory_unit(
-    input clock,
+    input clk,
     input write_enable,
     input [31:0] address,
     input [31:0] write_data,
