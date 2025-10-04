@@ -1,0 +1,26 @@
+// Code your design here
+// Code your design here
+module ALU (In_A,In_B,ALU_control_sig, ALU_result,zero_flag,sign_flag);
+  parameter width = 32;
+  input [width-1:0]In_A,In_B;
+  input [2:0] ALU_control_sig;
+  output reg [width-1:0] ALU_result;
+  output wire zero_flag , sign_flag;
+  
+  
+  always @(*) 
+    begin
+      case (ALU_control_sig)
+            3'b000: ALU_result = In_A + In_B;          // A + B
+            3'b001: ALU_result = In_A - In_B;          // A - B
+            3'b010: ALU_result = In_A | In_B;          // A OR B
+            3'b011: ALU_result = In_A & In_B;          // A AND B
+            3'b100: ALU_result= In_A ^ In_B;          // A XOR B
+            3'b101: ALU_result = In_A << In_B;         // A SHL B
+            3'b110: ALU_result = In_A >> In_B;         // A SHR B
+            default: ALU_result = 0;                   // default to 0
+        endcase
+    end
+  assign zero_flag = (ALU_result == 0);               // Zero flag
+  assign sign_flag = ALU_result[width-1];             // Sign flag 
+endmodule
