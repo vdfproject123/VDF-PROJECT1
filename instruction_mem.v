@@ -5,7 +5,7 @@ module instruction_memory (
     wire [6:0] Mem_addr; // 7 bits needed for 128 locations
     assign [29:0] Mem_addr = PC[31:2];
 
-    reg [31:0] Instruction_array[31:0];
+    reg [31:0] Instruction_arry[31:0];
 
     initial begin
         
@@ -57,6 +57,6 @@ module instruction_memory (
 
 
     always @(*) begin
-        Instruction = Instruction_array[Mem_addr];
+        Instruction = Instruction_arry[Mem_addr];
     end
 endmodule
