@@ -11,6 +11,8 @@ module PC(
             read_data <= 32'b0;
         else if (write_en)
             read_data <= write_data;
+        else
+            read data <= read_data + 4;
     end
 
 endmodule
