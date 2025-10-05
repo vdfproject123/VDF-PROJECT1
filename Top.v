@@ -18,8 +18,8 @@ module Top (
         .Pc_next(Pc_next),
         .clk(clk),
         .reset(reset),
-        .load(1'b1),     // always load unless halted (not supported yet)
-        .PC(PC)
+        .write_en(1'b1),     // always load unless halted (not supported yet)
+        .read_data(PC)
     );
 
     // instructionuction Memory (word-aligned)
