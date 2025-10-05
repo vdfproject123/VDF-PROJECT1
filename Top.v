@@ -15,7 +15,7 @@ module Top (
 
     // PC Register
     PC pc (
-        .Pc_next(Pc_next),
+        .write_data(Pc_next),
         .clk(clk),
         .reset(reset),
         .write_en(1'b1),     // always load unless halted (not supported yet)
